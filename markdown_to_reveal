@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# Script to install a new template presentation.
+
+DEST="$1"
+INSTALL="install"
+MARKDOWN_TO_REVEAL_BASE="$(dirname $0)"
+
+FILES="Makefile slides.md template.revealjs"
+DIRS="images reveal_js"
+
+if [ -z "${DEST}" ]; then
+    echo "Usage: markdown_to_reveal DEST_DIR"
+else
+    ${INSTALL} -d ${DEST}
+    for f in ${FILES}
+    do
+        ${INSTALL} -c ${MARKDOWN_TO_REVEAL_BASE}/${f} ${DEST}/${f}
+    done
+    for d in ${DIRS}
+    do
+        ${INSTALL} -d ${DEST}/${d} && \
+        cp -r ${MARKDOWN_TO_REVEAL_BASE}/${d}/* ${DEST}/${d}/
+    done
+fi
