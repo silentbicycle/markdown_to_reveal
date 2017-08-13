@@ -19,7 +19,7 @@ generate PDFs, pdflatex is required - Get a [LaTex] distribution, such as
 
 ## Usage
 
-To install an empty presentation, run `markdown_to_reveal DEST_DIR`.
+To install an empty presentation, run `./markdown_to_reveal DEST_DIR`.
 This will copy reveal.js, a Makefile, and a short example presentation
 to the destination.
 
